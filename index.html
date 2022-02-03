@@ -31,7 +31,7 @@
           video.srcObject = stream; // gelen video akışını elemente gönder
           // Eğer meta verisi yüklenmişse
           video.onloadedmetadata = function(e) {
-            video.dfdlskhplay(); // Videoyu oynat.
+            video.play(); // Videoyu oynat.
           };
           // Eğer bir hata olursa konsola yaz
         }).catch(error => console.log(error));
