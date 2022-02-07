@@ -8,18 +8,86 @@
     <!-- Gerekli CSS ve JavaScript dosyları -->
     <link rel="icon" href="favicon.ico" />
   </head>
-  <body>
-    <div style="background-color: #ccc;">
-      <h1 style="color: red;">Sayfa içinde görüntülenen başlık</h1>
-      <h2 style="text-decoration: underline;">İkinci başlığım</h2>
-      <p>Bu benim açıklama metnim.</p>
-    </div>
-    <div style="background-color: #EEE1DE;">
-      <video id="video" width="320" height="240" ></video>
-    </div>
 
-    <script>
-      // Video elementine eriştik
+
+  <style>
+      /* Kamera videoyu yansıtırken simetrisini alıyor. Bende simetrisinin simetrisini alıp doğal haline getirdim */
+            #video  
+            {
+                transform: rotateY(180deg);
+                -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+                -moz-transform:rotateY(180deg); /* Firefox */
+                border-radius: 100px;
+                margin-left: 350px; /* css daha tam incelemediğim için elle ayarlıyorum pixellerini :)  */
+                
+            }   
+
+
+            h1{
+                text-align: center; 
+                font-size:100px;
+                color: rgb(173, 119, 223);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            button{
+                font-size: 20px;
+                border-radius: 10px;
+                color: #6bc2c2d2;
+                background-color: rgb(255, 255, 255);
+                border-color: rgba(182, 106, 219, 0.767);
+            }
+
+            img{
+                width: 100px;
+                height: auto;
+                display: none;
+            }
+            #resim1,#resim2{
+                margin-left: 190px;  /* konfeti resimlerine soldan margin vermeye çalıştım  */
+            }
+
+
+
+  </style>
+
+
+
+  <body>
+    
+
+      <div style="background-color: #EEE1DE;">
+        <img id="resim1" src="https://cdn-icons-png.flaticon.com/512/4158/4158206.png" alt="konfeti">  <!-- Konfeti resimlerini indirdim -->
+
+        <video id="video" width="320" height="240" ></video> 
+
+        <img id="resim2" src="https://cdn-icons-png.flaticon.com/512/4158/4158206.png" alt="konfeti"> <!-- Konfeti resimlerini indirdim -->
+      </div>
+
+
+
+      <h1>Güzel şeyler görmek ister misin?</h1>
+
+
+
+
+    <div style="margin-left: 599px;margin-top: 100px;">
+
+        <button id="btn-gosterme" style="margin-right: 79px;">Şimdilik Yok :( </button>  <!-- İki tane buton oluşturdum. Duruma göre videoyu html sayfamızda göstermek içinn -->
+        <button id="btn-goster">Evet</button>
+
+    </div>
+    
+
+
+
+
+
+
+<script>
+
+    function kameraAc(){                // Burda videoyu gösterme işini bir fonksiyon haline getirdim. Hem işi kolaylaştırıyor hemde güvende hissettiriyor :)
+         // Video elementine eriştik
       const video = document.getElementById('video');
       // Eğer kullanıcı medyası verisini alabiliyorsak
       if (navigator.mediaDevices.getUserMedia) {
@@ -36,6 +104,43 @@
           // Eğer bir hata olursa konsola yaz
         }).catch(error => console.log(error));
       }
-     </script>
+    }
+
+
+
+   let btnGoster=document.getElementById("btn-goster"); // Burda önce id ile goster butonunu çağırdım.
+	btnGoster.onclick=function(){                      // onclick'i kullanarak tıklandığında bizim üstte oluşturduğumuz fonksiyonu çağırcak.
+		kameraAc()
+        
+        setTimeout(() => { let resimElementi_1=document.getElementById("resim1")  // Burda ise  goster butonu ile gizliliğini görünür hale getirdik ama butona tıklandıktan 800ms sonra . Yani 0,8 saniye sonra.
+        let resimElementi_2=document.getElementById("resim2")
+        resimElementi_1.style.display="inline" 
+        resimElementi_2.style.display="inline"
+            
+        }, 800); //konfetiler video ile aynı anda gelsin diye siteTimeout fonksiyonunu kullandım.
+
+	}
+
+
+
+    let btnGosterme=document.getElementById("btn-gosterme");  // Bu ise yukardaki ile aynı mantıkta ama video ve konfetiler  açıkken kapatma özelliğini getirdim.  
+	btnGosterme.onclick=function(){                           // kapalıyken açma özelliğinide getirsek ne güzel olur.
+		alert("Sen bilirsin \uD83D\uDE00 ");
+        let videoElementi=document.getElementById("video")
+        videoElementi.style.display="none";
+        let resimElementi_1=document.getElementById("resim1")
+        let resimElementi_2=document.getElementById("resim2")
+        resimElementi_1.style.display="none"
+        resimElementi_2.style.display="none" 
+	} 
+
+</script>
+
+
+
+
+
+ 
+     
   </body>
 </html>
