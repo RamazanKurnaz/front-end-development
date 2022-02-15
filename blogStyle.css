@@ -1,0 +1,127 @@
+
+
+body{
+    font:Arial,sans-serif;
+    font-size: 16px;
+    color: gray;
+
+    height:999px;
+
+}
+
+#container{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.ay,p{
+    display: flex;
+    justify-content: center;
+}
+
+.eda:hover{
+    border-radius: 281px;
+
+    transition: 0.5s;
+    box-shadow:0 0 10px rgb(167, 89, 240);
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px 25xp 0px;
+    
+    
+    
+}
+
+header .title{
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 100;
+    font-size: 60px;
+    color: rgb(0, 0, 0);
+    margin: 0 auto;
+    border-bottom: 2px solid rgb(201, 195, 195);
+    padding-bottom: 20px; 
+    margin-bottom: 99px;
+    
+        
+
+}
+
+
+header nav a{
+    color: rgb(154, 154, 221);
+    text-decoration: none;
+    margin-left:20px ;
+}
+
+header nav a:hover{
+    text-decoration: underline;
+    color: rgb(167, 89, 240);
+
+}
+
+section{
+    
+    padding-top: 70px;
+
+}
+
+article{
+    color: rgb(99, 99, 99);
+    display: flex;
+    flex-direction:row;
+}
+
+article h2{
+    font:400 40px 'Lora';
+    font-size: 0.8cm;
+    font-weight: bold;
+}
+article img{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+}
+
+article .content{
+    /*  */
+}
+
+h2{
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-top:100px ;
+    color: hsl(0, 0%, 26%);
+}
+
+.buyukKutu-1,.buyukKutu-2{
+
+    display: flex;
+              
+    justify-content: center;            
+    align-items: center;
+    flex-direction: row;
+}
+
+.kutu{
+    border:2px solid rgba(0, 0, 0, 0.068) ;
+    border-radius: 4px;
+    width: 290px;
+    height: 290px;
+    margin: 10px;
+    transition: 0.5s;
+    
+    
+}
+.kutu:hover{
+    transform: scale(1.2,1.2);
+    z-index: 2;
+    border-color: rgba(0, 0, 0, 0.274);
+    box-shadow:0 0 10px rgba(188, 137, 235, 0.616);
+}
